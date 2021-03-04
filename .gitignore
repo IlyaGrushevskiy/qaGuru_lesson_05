@@ -5,6 +5,8 @@
 # Gradle
 .gradle
 build
+gradlew
+gradlew.bat
 
 # Allure
 .allure
