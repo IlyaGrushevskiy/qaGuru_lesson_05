@@ -19,9 +19,7 @@ public class BaseSteps {
 
     @Step ("Выполнен поиск репозитория")
     public void searchRepository (String searchText) {
-        $(".header-search-input").click();
-        $(".header-search-input").sendKeys(searchText);
-        $(".header-search-input").submit();
+        $(".header-search-input").setValue(searchText).submit();
     }
 
     @Step ("Выполнен переход в репозиторий: {repositoryName}")
@@ -36,6 +34,6 @@ public class BaseSteps {
 
     @Step ("Проверено наличие искомого ISSUE - {issueName}")
     public void checkIssue (String issueName) {
-        $(withText(issueName)).should(Condition.exist);
+        $(withText(issueName)).should(Condition.visible);
     }
 }

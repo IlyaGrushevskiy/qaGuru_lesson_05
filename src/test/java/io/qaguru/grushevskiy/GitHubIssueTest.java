@@ -34,15 +34,13 @@ public class GitHubIssueTest {
         step("Открыта главная страница", () -> open(BASE_URL));
 
         step("Выполнен поиск репозитория", () -> {
-            $(".header-search-input").click();
-            $(".header-search-input").sendKeys(REPOSITORY);
-            $(".header-search-input").submit();
+            $(".header-search-input").setValue(REPOSITORY).submit();
         });
 
         step("Выполнен переход в репозиторий", () -> $(By.linkText(REPOSITORY)).click());
 
         step("Выполнен переход в ISUUES", () -> $(withText(ISSUES)).click());
 
-        step("Проверено наличие искомого ISSUE", () -> $(withText(ISSUE_NUMBER)).should(Condition.exist));
+        step("Проверено наличие искомого ISSUE", () -> $(withText(ISSUE_NUMBER)).should(Condition.visible));
     }
 }
